@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="38cb2e8d-0ba9-4b4f-9364-bba30d5fbe0f" name="Changes" comment="" />
+    <list default="true" id="38cb2e8d-0ba9-4b4f-9364-bba30d5fbe0f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Final_Project_dir.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/HashTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tree01/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tree01/src/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tree01/src/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tree01/src/Tree.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2N2rqpd320x5DFTImt1DDgsbG9C" />
   <component name="ProjectViewState">
@@ -16,7 +38,13 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Luky/Desktop/Skola/DSA/Final_Project_dir/Hash01",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -29,7 +57,12 @@
       <option name="presentableId" value="Default" />
       <updated>1678873215391</updated>
       <workItem from="1678873216438" duration="7000" />
+      <workItem from="1678873704482" duration="227000" />
+      <workItem from="1678874150512" duration="2293000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

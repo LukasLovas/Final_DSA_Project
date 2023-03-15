@@ -32,11 +32,11 @@ public class Tree {
 
     Node TreeSearch(Node node,int data) {
         if (node == null) {
-            System.out.println("Prvok sa v strome nenasiel.");
+            System.out.println(data + "False");
             return node;
         }
         if (node.data == data){
-            System.out.println("Najdene:" + node.data);
+            System.out.println(node.data + "True");
             return node;
         }
 
