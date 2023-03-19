@@ -1,21 +1,17 @@
-import static java.lang.Math.abs;
+public class NodeString {
 
-public class Node {
-
-    public Node leftChild;
-    public Node rightChild;
+    public NodeString leftChild;
+    public NodeString rightChild;
 
     public int depth = 1;
-    public int value;
-    public String text;
+    public String value;
 
-    Node(Integer value, String text) {
+    NodeString(String value) {
         this.value = value;
-        this.text = text;
     }
 
-    public Node insertNode(Node node) {
-        if (value < node.value) {
+    public NodeString insertNode(NodeString node) {
+        if (value.compareTo(node.value) > 0) {
             if (rightChild != null) {
                 rightChild = rightChild.insertNode(node);
             } else {
@@ -26,7 +22,7 @@ public class Node {
                     depth = 1 + rightChild.depth;
                 }
             }
-        } else if (value > node.value) {
+        } else if (value.compareTo(node.value) < 0) {
             if (leftChild != null) {
                 leftChild = leftChild.insertNode(node);
             } else {
@@ -39,16 +35,17 @@ public class Node {
             }
         }
 
-        if (getBalance(this) > 1 && node.value < this.leftChild.value){
+        //if (getBalance(this) > 1 && node.value < this.leftChild.value){
+        if (getBalance(this) > 1 && node.value.compareTo(this.leftChild.value) > 0){
             return rotateRight(this);
-        } else if (getBalance(this) < -1 && node.value > this.rightChild.value){
+        } else if (getBalance(this) < -1 && node.value.compareTo(this.rightChild.value) < 0){
             return rotateLeft(this);
         }
-        else if (getBalance(this) > 1 && node.value > this.leftChild.value){
+        else if (getBalance(this) > 1 && node.value.compareTo(this.leftChild.value) < 0){
             this.leftChild = rotateLeft(this.leftChild);
             return rotateRight(this);
         }
-        else if (getBalance(this) < -1 && node.value < this.rightChild.value){
+        else if (getBalance(this) < -1 && node.value.compareTo(this.rightChild.value) > 0){
             this.rightChild = rotateRight(this.rightChild);
             return rotateLeft(this);
         }
@@ -65,7 +62,7 @@ public class Node {
         }
     }
 
-    void preOrder(Node node) {
+    void preOrder(NodeString node) {
         if (node != null) {
             System.out.print(node.value + " ");
             preOrder(node.leftChild);
@@ -73,7 +70,7 @@ public class Node {
         }
     }
 
-    void inOrder(Node node)
+    void inOrder(NodeString node)
     {
         if (node == null)
             return;
@@ -82,7 +79,7 @@ public class Node {
         inOrder(node.rightChild);
     }
 
-    public int getBalance(Node node){
+    public int getBalance(NodeString node){
         if (node == null){
             return 0;
         } else {
@@ -92,9 +89,9 @@ public class Node {
         }
     }
 
-    public Node rotateLeft(Node A){
-        Node nodeRight = A.rightChild;
-        Node nodeLeft = nodeRight.leftChild;
+    public NodeString rotateLeft(NodeString A){
+        NodeString nodeRight = A.rightChild;
+        NodeString nodeLeft = nodeRight.leftChild;
 
         nodeRight.leftChild = A;
         A.rightChild = nodeLeft;
@@ -110,9 +107,9 @@ public class Node {
         return nodeRight;
     }
 
-    public Node rotateRight(Node A){
-        Node nodeLeft = A.leftChild;
-        Node nodeRight = nodeLeft.rightChild;
+    public NodeString rotateRight(NodeString A){
+        NodeString nodeLeft = A.leftChild;
+        NodeString nodeRight = nodeLeft.rightChild;
 
         nodeLeft.rightChild = A;
         A.leftChild = nodeRight;

@@ -1,4 +1,4 @@
-public class Tree {
+public class    Tree {
     Node rootInteger;
     NodeString rootString;
 
