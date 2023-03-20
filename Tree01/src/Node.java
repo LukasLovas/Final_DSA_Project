@@ -135,4 +135,86 @@ public class Node {
             return B;
         }
     }
+    Node searchNode(Node node, int data) {
+        if (node == null) {
+            System.out.println("Prvok sa v strome nenasiel.\n");
+            return node;
+        }
+        if (node.value == data){
+            System.out.println("Najdene:" + node.value + "\n");
+            return node;
+        }
+
+        if (data < node.value) {
+            return searchNode(node.leftChild, data);
+        }
+        else {
+            return searchNode(node.rightChild, data);
+        }
+    }
+
+    Node findMinimumValue(Node node)
+    {
+        Node checkedNode = node;
+        while (checkedNode.leftChild != null)
+            checkedNode = checkedNode.leftChild;
+
+        return checkedNode;
+    }
+
+
+    public Node deleteNode(Node node, int value) {
+        if (node == null) {
+            return node;
+        }
+        if (value < node.value) {
+            node.leftChild = deleteNode(node.leftChild, value);
+        } else if (value > node.value) {
+            node.rightChild = deleteNode(node.rightChild, value);
+        } else {
+            if ((node.leftChild == null) || (node.rightChild == null)) {
+                Node tempNode = null;
+                if (tempNode == node.leftChild) {
+                    tempNode = node.rightChild;
+                } else {
+                    tempNode = node.leftChild;
+                }
+                if (tempNode == null) {
+                    tempNode = node;
+                    node = null;
+                } else {
+                    node = tempNode;
+                }
+            } else {
+                Node tempNode = findMinimumValue(node.rightChild);
+                node.value = tempNode.value;
+                node.rightChild = deleteNode(node.rightChild, tempNode.value);
+            }
+        }
+
+        if (node == null) {
+            return node;
+        }
+
+        int leftDepth = node.leftChild != null ? node.leftChild.depth : 0;
+        int rightDepth = node.rightChild != null ? node.rightChild.depth : 0;
+        node.depth = max(leftDepth, rightDepth) + 1;
+
+        if (getBalance(node) > 1 && getBalance(node.leftChild) >= 0)
+            return rotateRight(node);
+        if (getBalance(node) > 1 && getBalance(node.leftChild) < 0)
+        {
+            node.leftChild = rotateLeft(node.leftChild);
+            return rotateRight(node);
+        }
+        if (getBalance(node) < -1 && getBalance(node.rightChild) <= 0)
+            return rotateLeft(node);
+        if (getBalance(node) < -1 && getBalance(node.rightChild) > 0)
+        {
+            node.rightChild = rotateRight(node.rightChild);
+            return rotateLeft(node);
+        }
+
+        return node;
+    }
 }

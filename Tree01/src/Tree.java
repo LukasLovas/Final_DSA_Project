@@ -20,6 +20,14 @@ public class Tree {
         }
     }
 
+    public Node searchNode(int value){
+        return rootInteger.searchNode(rootInteger, value);
+    }
+
+    public void deleteNode(int value){
+        rootInteger = rootInteger.deleteNode(rootInteger, value);
+    }
+
     public void print() {
         rootInteger.print();
         System.out.println("\n\n");
@@ -32,7 +40,6 @@ public class Tree {
         rootString.inOrder(rootString);
         System.out.println("\n\n");
         rootInteger.inOrder(rootInteger);
-
 
     }
 }

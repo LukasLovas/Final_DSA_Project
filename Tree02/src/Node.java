@@ -3,7 +3,6 @@ public class Node {
     public Node leftChild;
     public Node rightChild;
 
-    public int depth = 1;
     public int value;
     public String text;
 
@@ -18,47 +17,23 @@ public class Node {
                 rightChild = rightChild.insertNode(node);
             } else {
                 rightChild = node;
-                if (leftChild != null){
-                    depth = 1 + max(rightChild.depth, leftChild.depth);
-                } else {
-                    depth = 1 + rightChild.depth;
-                }
             }
         } else if (value > node.value) {
             if (leftChild != null) {
                 leftChild = leftChild.insertNode(node);
             } else {
                 leftChild = node;
-                if (rightChild != null){
-                    depth = 1 + max(rightChild.depth, leftChild.depth);
-                } else {
-                    depth = 1 + leftChild.depth;
-                }
             }
-        }
-
-        if (getBalance(this) > 1 && node.value < this.leftChild.value){
-            return rotateRight(this);
-        } else if (getBalance(this) < -1 && node.value > this.rightChild.value){
-            return rotateLeft(this);
-        }
-        else if (getBalance(this) > 1 && node.value > this.leftChild.value){
-            this.leftChild = rotateLeft(this.leftChild);
-            return rotateRight(this);
-        }
-        else if (getBalance(this) < -1 && node.value < this.rightChild.value){
-            this.rightChild = rotateRight(this.rightChild);
-            return rotateLeft(this);
         }
         return this;
     }
 
-    public void print(){
-        System.out.println("value: " + value + "\tdepth: " + depth + "\tbalance: " + getBalance(this));
-        if (leftChild != null){
+    public void print() {
+        System.out.println("value: " + value);
+        if (leftChild != null) {
             leftChild.print();
         }
-        if (rightChild != null){
+        if (rightChild != null) {
             rightChild.print();
         }
     }
@@ -71,8 +46,7 @@ public class Node {
         }
     }
 
-    void inOrder(Node node)
-    {
+    void inOrder(Node node) {
         if (node == null)
             return;
         inOrder(node.leftChild);
@@ -80,54 +54,94 @@ public class Node {
         inOrder(node.rightChild);
     }
 
-    public int getBalance(Node node){
-        if (node == null){
-            return 0;
+
+    public Node rotateLeft(Node A) {
+        Node rightNode = A.rightChild;
+        A.rightChild = rightNode.leftChild;
+        rightNode.leftChild = A;
+        return rightNode;
+    }
+
+    public Node rotateRight(Node A) {
+        Node leftNode = A.leftChild;
+        A.leftChild = leftNode.rightChild;
+        leftNode.rightChild = A;
+        return leftNode;
+    }
+
+    public Node splay(Node node, int value) {
+        if (node == null || node.value == value) {
+            return node;
+        }
+        if (node.value > value) {
+            if (node.leftChild == null) {
+                return node;
+            }
+            if (node.leftChild.value > value) {
+                node.leftChild.leftChild = splay(node.leftChild.leftChild, value);
+                node = rotateRight(node);
+            } else if (node.leftChild.value < value) {
+                node.leftChild.rightChild = splay(node.leftChild.rightChild, value);
+                if (node.leftChild.rightChild != null) {
+                    node.leftChild = rotateLeft(node.leftChild);
+                }
+            }
+            if (node.leftChild == null) {
+                return node;
+            } else {
+                return rotateRight(node);
+            }
         } else {
-            int leftHeight = node.leftChild != null ? node.leftChild.depth : 0;
-            int rightHeight = node.rightChild != null ? node.rightChild.depth : 0;
-            return leftHeight - rightHeight;
+            if (node.rightChild == null) {
+                return node;
+            }
+            if (node.rightChild.value > value) {
+                node.rightChild.leftChild = splay(node.rightChild.leftChild, value);
+                if (node.rightChild.leftChild != null) {
+                    node.rightChild = rotateRight(node.rightChild);
+                }
+            } else if (node.rightChild.value < value) {
+                node.rightChild.rightChild = splay(node.rightChild.rightChild, value);
+                node = rotateLeft(node);
+            }
+            if (node.rightChild == null) {
+                return node;
+            } else {
+                return rotateLeft(node);
+            }
         }
     }
 
-    public Node rotateLeft(Node A){
-        Node nodeRight = A.rightChild;
-        Node nodeLeft = nodeRight.leftChild;
-
-        nodeRight.leftChild = A;
-        A.rightChild = nodeLeft;
-
-        int leftDepth = A.leftChild != null ? A.leftChild.depth : 0;
-        int rightDepth = A.rightChild != null ? A.rightChild.depth : 0;
-        A.depth = max(leftDepth, rightDepth) + 1;
-
-        leftDepth = nodeRight.leftChild != null ? nodeRight.leftChild.depth : 0;
-        rightDepth = nodeRight.rightChild != null ? nodeRight.rightChild.depth : 0;
-        nodeRight.depth = max(leftDepth, rightDepth) + 1;
-
-        return nodeRight;
+    public Node search(Node node, int value) {
+        return splay(node, value);
     }
 
-    public Node rotateRight(Node A){
-        Node nodeLeft = A.leftChild;
-        Node nodeRight = nodeLeft.rightChild;
+    public Node deleteNode(Node node, int value){
+        Node tempNode;
+        if (node == null){
+            return null;
+        }
 
-        nodeLeft.rightChild = A;
-        A.leftChild = nodeRight;
+        node = splay(node, value);
 
-        int leftDepth = A.leftChild != null ? A.leftChild.depth : 0;
-        int rightDepth = A.rightChild != null ? A.rightChild.depth : 0;
-        A.depth = max(leftDepth, rightDepth) + 1;
+        if (value != node.value){
+            return node;
+        }
 
-        leftDepth = nodeLeft.leftChild != null ? nodeLeft.leftChild.depth : 0;
-        rightDepth = nodeLeft.rightChild != null ? nodeLeft.rightChild.depth : 0;
-        nodeLeft.depth = max(leftDepth, rightDepth) + 1;
+        if (node.leftChild == null){
+            tempNode = node;
+            node = node.rightChild;
+        } else {
+            tempNode = node;
+            node = splay(node.leftChild, value);
+            node.rightChild = tempNode.rightChild;
+        }
 
-        return nodeLeft;
+        return node;
     }
 
-    public int max(int A, int B){
-        if (A > B){
+    public int max(int A, int B) {
+        if (A > B) {
             return A;
         } else {
             return B;

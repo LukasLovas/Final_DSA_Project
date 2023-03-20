@@ -11,6 +11,15 @@ public class Main {
 
         insertValues(tree);
         tree.print();
+
+        tree.searchNode(17);
+        tree.print();
+
+        tree.deleteNode(17);
+        tree.print();
+        tree.searchNode(17);
+        tree.print();
+
     }
 
     public static void insertValues(Tree tree){
