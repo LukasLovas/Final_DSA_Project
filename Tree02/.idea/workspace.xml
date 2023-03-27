@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb560c81-f16b-43fc-a2ea-30d2302c43f6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Tree01/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tree01/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tree01/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tree01/src/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tree01/src/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tree01/src/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NodeString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tree.java" afterDir="false" />
-    </list>
+    <list default="true" id="fb560c81-f16b-43fc-a2ea-30d2302c43f6" name="Changes" comment="Splay tree done with all functions" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,12 +47,24 @@
       <updated>1678873198900</updated>
       <workItem from="1678873199948" duration="15000" />
       <workItem from="1679256410171" duration="3673000" />
-      <workItem from="1679262282136" duration="1023000" />
+      <workItem from="1679262282136" duration="1054000" />
     </task>
+    <task id="LOCAL-00001" summary="Splay tree done with all functions">
+      <created>1679299926017</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679299926017</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Splay tree done with all functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Splay tree done with all functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

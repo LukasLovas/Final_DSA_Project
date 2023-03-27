@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38cb2e8d-0ba9-4b4f-9364-bba30d5fbe0f" name="Changes" comment="zaciatok hashu">
+      <change afterPath="$PROJECT_DIR$/src/SeparateChaining.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hash02/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hash02/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hash02/src/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hash02/src/OpenAdressing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HashTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tree02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Tree02/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +62,10 @@
       <workItem from="1678873704482" duration="227000" />
       <workItem from="1678874150512" duration="3167000" />
       <workItem from="1679236135157" duration="169000" />
+      <workItem from="1679477622912" duration="2559000" />
+      <workItem from="1679587052056" duration="531000" />
+      <workItem from="1679588191594" duration="598000" />
+      <workItem from="1679909983385" duration="8146000" />
     </task>
     <task id="LOCAL-00001" summary="zaciatok hashu">
       <created>1678876875162</created>
