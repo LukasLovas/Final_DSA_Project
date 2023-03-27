@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class SeparateChaining {
     ArrayList<Node> chainArray;
@@ -101,15 +99,24 @@ public class SeparateChaining {
         chainArray.set(index, createdNode);
 
         if(((1.0 * arraySize) / arrayCapacity) >= 0.7){
-            ArrayList temp = chainArray;
+            ArrayList<Node> temp = chainArray;
             chainArray = new ArrayList<>();
             arrayCapacity = 2*arrayCapacity;
             arraySize = 0;
 
+            for (int i = 0; i < arrayCapacity; i++) {
+                chainArray.add(null);
+            }
 
+
+            for(Node node : temp) {
+                while (node != null) {
+                    insertNode(node.key,node.value);
+                    node = node.next;
+                }
+            }
+            }
         }
     }
 
-
-}
 
