@@ -1,4 +1,4 @@
-
+package src;
 
 public class OpenAdressing{
 
@@ -9,8 +9,8 @@ public class OpenAdressing{
 
     NodeOpenAdressing tempNode;
 
-    public OpenAdressing(){
-        this.tableCapacity = 20;
+    public OpenAdressing(int size){
+        this.tableCapacity = size;
         this.tableSize = 0;
         this.table = new NodeOpenAdressing[this.tableCapacity];
         this.tempNode = new NodeOpenAdressing("-1","-1");
@@ -50,10 +50,8 @@ public class OpenAdressing{
         int hash = hash(key);
         int index = hash;
         int i = 0;
-        while(this.table[index] != null && !this.table[index].key.equals(key) && (!this.table[index].key.equals("-1"))){
-            // Fixed the condition in the while loop to check if the current node's key is not equal to the input key
-            // Also, moved this line inside the loop to recalculate the index in case of collision
-            index = (hash + i*i)%tableSize;
+        while(this.table[index] != null && this.table[index].key != key && (!this.table[index].key.equals("-1"))){
+            index = (hash(key)+ i*i)%tableSize;
             i++;
         }
         if (this.table[index] == null || this.table[index].key.equals("-1")) {
@@ -83,12 +81,12 @@ public class OpenAdressing{
                 newTable[index] = node;
             }
         }
-        // Fixed the condition to update the tableCapacity with the newTableCapacity
         this.tableCapacity = newTableCapacity;
+        this.tableSize = 0; // reset tableSize to 0
         this.table = newTable;
     }
 
-    public String deleteNode(String key){
+    public void deleteNode(String key){
         int hash = hash(key);
         int index = hash;
         int i = 0;
@@ -97,12 +95,10 @@ public class OpenAdressing{
                 NodeOpenAdressing temp = this.table[index];
                 this.table[index] = this.tempNode;
                 this.tableSize--;
-                return temp.value;
             }
             index = (hash + i*i)%tableSize;
             i++;
         }
-        return "not found";
     }
 
     public boolean searchNode(String key){
@@ -113,18 +109,18 @@ public class OpenAdressing{
 
         while(this.table[index] != null){
             if(loopEnd > this.tableCapacity){
-                System.out.println("presiahnuta kapacita tabulky");
+                //System.out.println("presiahnuta kapacita tabulky");
                 return false;
             }
             if(this.table[index].key.equals(key)){
-                System.out.printf("Prvok s klucom %s bol sa nachadza v tabulke", key);
+               // System.out.printf("Prvok s klucom %s bol sa nachadza v tabulke", key);
                 return true;
             }
             index = (hash + i*i)%tableSize;
             i++;
             loopEnd++;
         }
-        System.out.println("Nenachadza sa");
+        //System.out.println("Nenachadza sa");
         return false;
     }
 

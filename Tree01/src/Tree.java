@@ -1,6 +1,5 @@
 public class Tree {
     Node rootInteger;
-    NodeString rootString;
 
     public void insert(Node node) {
         if (rootInteger == null) {
@@ -11,14 +10,7 @@ public class Tree {
         }
     }
 
-    public void insert(NodeString node) {
-        if (rootString == null) {
-            rootString = node;
-            rootString.depth = 1;
-        } else {
-            rootString = rootString.insertNode(node);
-        }
-    }
+
 
     public Node searchNode(int value){
         return rootInteger.searchNode(rootInteger, value);
@@ -31,13 +23,13 @@ public class Tree {
     public void print() {
         rootInteger.print();
         System.out.println("\n\n");
-        rootString.print();
+        //rootString.print();
         System.out.println("\n\n");
-        rootString.preOrder(rootString);
+        //rootString.preOrder(rootString);
         System.out.println("\n\n");
         rootInteger.preOrder(rootInteger);
         System.out.println("\n\n");
-        rootString.inOrder(rootString);
+        //rootString.inOrder(rootString);
         System.out.println("\n\n");
         rootInteger.inOrder(rootInteger);
 

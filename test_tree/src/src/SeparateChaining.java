@@ -1,7 +1,10 @@
+package src;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SeparateChaining {
-    ArrayList<Node> chainArray;
+    ArrayList<NodeSeparateChaining> chainArray;
     int arrayCapacity;
     int arraySize;
 
@@ -14,9 +17,9 @@ public class SeparateChaining {
             chainArray.add(null);
         }
     }
+
     public int getArrayCapacity() {return arrayCapacity;}
     public int getArraySize(){return arraySize;}
-    public boolean checkEmpty() {return getArraySize() == 0;}
 
     public int toPowerOf(int x, int  y){
         if(y == 0){
@@ -49,8 +52,8 @@ public class SeparateChaining {
 
     public String deleteNode(String key){
         int index = hash(key);
-        Node current = chainArray.get(index);
-        Node last = null;
+        NodeSeparateChaining current = chainArray.get(index);
+        NodeSeparateChaining last = null;
         while(current != null){
             if(current.key.equals(key)){
                 break;
@@ -73,7 +76,7 @@ public class SeparateChaining {
 
     public String searchNode(String key){
         int index = hash(key);
-        Node current = chainArray.get(index);
+        NodeSeparateChaining current = chainArray.get(index);
         while(current != null){
             if(current.key.equals(key)){
                 return current.value;
@@ -83,9 +86,21 @@ public class SeparateChaining {
         return null;
     }
 
+    public void printTable() {
+        for (int i = 0; i < arrayCapacity; i++) {
+            NodeSeparateChaining current = chainArray.get(i);
+            System.out.print("Index " + i + ": ");
+            while (current != null) {
+                System.out.print("(" + current.key + ", " + current.value + ")");
+                current = current.next;
+            }
+            System.out.println();
+        }
+    }
+
     public void insertNode(String key, String value){
         int index = hash(key);
-        Node current = chainArray.get(index);
+        NodeSeparateChaining current = chainArray.get(index);
         while(current != null){
             if(current.key.equals(key)){
                 current.value = value;
@@ -95,12 +110,12 @@ public class SeparateChaining {
         }
         arraySize++;
         current = chainArray.get(index);
-        Node createdNode = new Node(key,value);
+        NodeSeparateChaining createdNode = new NodeSeparateChaining(key,value);
         createdNode.next = current;
         chainArray.set(index, createdNode);
 
-        if(((1.0 * arraySize) / arrayCapacity) >= 0.7){
-            ArrayList<Node> temp = chainArray;
+        if(((1.0 * arraySize) / arrayCapacity) >= 0.7){ //upsizing and rehashing
+            ArrayList<NodeSeparateChaining> temp = chainArray;
             chainArray = new ArrayList<>();
             arrayCapacity = 2*arrayCapacity;
             arraySize = 0;
@@ -110,13 +125,14 @@ public class SeparateChaining {
             }
 
 
-            for(Node node : temp) {
+            for(NodeSeparateChaining node : temp) {
                 while (node != null) {
                     insertNode(node.key,node.value);
                     node = node.next;
                 }
             }
         }
+        
     }
 }
 

@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb560c81-f16b-43fc-a2ea-30d2302c43f6" name="Changes" comment="Splay tree done with all functions" />
+    <list default="true" id="fb560c81-f16b-43fc-a2ea-30d2302c43f6" name="Changes" comment="Splay tree done with all functions">
+      <change afterPath="$PROJECT_DIR$/../Hash01/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_tree/src/src/MainTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_tree/src/src/NodeAVL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_tree/src/src/NodeSplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_tree/src/src/TreeAVL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_tree/src/src/TreeSplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hash01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Hash01/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hash01/src/SeparateChaining.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Hash01/src/SeparateChaining.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tree01/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tree01/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tree01/src/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tree01/src/Tree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +60,7 @@
       <workItem from="1678873199948" duration="15000" />
       <workItem from="1679256410171" duration="3673000" />
       <workItem from="1679262282136" duration="1054000" />
+      <workItem from="1680007328120" duration="620000" />
     </task>
     <task id="LOCAL-00001" summary="Splay tree done with all functions">
       <created>1679299926017</created>
