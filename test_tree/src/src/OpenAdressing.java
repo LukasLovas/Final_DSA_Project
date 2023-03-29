@@ -82,7 +82,6 @@ public class OpenAdressing{
             }
         }
         this.tableCapacity = newTableCapacity;
-        this.tableSize = 0; // reset tableSize to 0
         this.table = newTable;
     }
 
